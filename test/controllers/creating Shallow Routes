@@ -1,0 +1,9 @@
+http://localhost:3000/organizations/:organization_id/people/:person_id/claims/:id
+
+http://localhost:3000/people/:person_id/claims/:id
+
+COLLECTION
+-INDEX, NEW, CREATE
+
+MEMBER
+-SHOW, EDIT, UPDATE, DESTROY

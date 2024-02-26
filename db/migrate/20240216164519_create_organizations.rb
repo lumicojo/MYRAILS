@@ -3,7 +3,7 @@ class CreateOrganizations < ActiveRecord::Migration[7.1]
     create_table :organizations do |t|
       t.string :name
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

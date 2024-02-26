@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :organizations do
-    resources :people, shallow: true
-    end
-    get "/about_us" => "pages#about_us"
+  resources :people
 
 
-  root "people#index"
 
   #get "/admin_people_screen" => "people#admin_people_screen"
   # post "/admin_people_screen_test" =>  "people#admin_people_screen_test"
-  namespace :admin do
-    get "/people_screen" => "people#people_screen"
-  end
+
   # resources :organization do
   #   resources :people, shallow: true
   # end

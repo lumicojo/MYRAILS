@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_16_165038) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_16_164519) do
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -24,10 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_165038) do
     t.boolean "married"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "last_name", null: false
-    t.integer "organization_id", null: false
-    t.index ["organization_id"], name: "index_people_on_organization_id"
+    t.string "last_name"
   end
 
-  add_foreign_key "people", "organizations"
 end

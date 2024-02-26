@@ -1,0 +1,6 @@
+-Person -> belongs_to -> Organization
+Organization -> has_many ->people
+
+http://localhost:3000/organizations/:organization_id/people
+
+http://localhost:3000/organizations/:organization_id/people/:id
