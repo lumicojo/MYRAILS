@@ -25,6 +25,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_164519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "last_name"
+    t.integer "organization_id"
+    t.index ["organization_id"], name: "index_people_on_organization_id"
   end
 
+  add_foreign_key "people", "organizations"
 end
