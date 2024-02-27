@@ -9,9 +9,26 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
 
+  #THIS is an example how to sent file to user to download the file
+  # def zip_download
+  #   file_path = File.join(Rails.root, "lib", "assets", "test_file.zip")
+  #   respond_to do |format
+  #      format.zip do
+  #        sent_file file_path, disposition: :attachment
+  #      end
+  #   end
+  # end
+
   # GET /people/2 or /people/2.json
   def show
     @person = Person.find([params[:id]])
+
+    respond_to do |format|
+      format.html     # rails knows by default that i want to render the HTML template for
+                      #the show action So the test will check locallhost 3000 for person2
+      format.json {render :json => @person.to_json}
+      format.xml {render :xml => @person.to_xml}
+    end
   end
 
   # GET /people/new
@@ -50,6 +67,10 @@ class PeopleController < ApplicationController
         format.json { render json: @person.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def test
+
   end
 
   # DELETE /people/2 or /people/2.json

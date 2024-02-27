@@ -1,6 +1,34 @@
 Rails.application.routes.draw do
 
-  resources :people
+  #this is how add routes to do a test   from here go to people_controler and do format
+    resources :people do
+      member do
+        get "test"
+      end
+    end
+
+
+
+  # root "people#index"
+# from here go to people_controler and before the delete  add  def test end
+
+
+
+    #THIS is an example how to sent file to user to download the file
+  # resources :people
+  # root "people#index"
+  # get "/zip_download" => "people#zip_download"    #the go to people_controller and under index def Zip_download
+
+
+
+
+
+
+
+
+
+
+
 
 
 
