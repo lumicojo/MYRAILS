@@ -1,12 +1,35 @@
 class PeopleController < ApplicationController
  before_action :set_person, only: %i[ show edit update destroy ]
 
+ # USING Variant
+ # before_action :set_variant     then go down to private
+
+# include ActionController::live   # This is for Live Stream
+#   def stream
+#     response.headers["Content-Type"] = "text/event-stream"
+#     100.times {
+#       response.stream.write "hello from Rails demo app! \n"
+#       sleep 1
+#     }
+#     ensure
+#       response.stream.close
+#   end
+
   def admin_people_screen
 
   end
   # GET /people or /people.json
   def index
     @people = Person.all
+
+    # # Using variant
+    # respond_to do |format|
+    #   format.html do |html|
+    #     html.phone {
+    #       @phone_message = "hi you are viewing the mobile version of the site"
+    #     }
+    #   end
+    # end
   end
 
   #THIS is an example how to sent file to user to download the file
@@ -88,6 +111,14 @@ class PeopleController < ApplicationController
     def set_person
       @person = Person.find(params[:id])
     end
+
+    # #This is for Variant
+    # def set_variant
+    #   if browser.mobile?
+    #     request.variant = :phone
+    #   end
+    # end
+
 
     # Only allow a list of trusted parameters through.
     def person_params
